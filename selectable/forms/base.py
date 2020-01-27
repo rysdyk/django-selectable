@@ -4,7 +4,7 @@ from importlib import import_module
 
 from django import forms
 from django.conf import settings
-from django.utils.six import string_types
+#from django.utils.six import string_types
 
 
 __all__ = (
@@ -36,7 +36,7 @@ def import_lookup_class(lookup_class):
     Import lookup_class as a dotted base and ensure it extends LookupBase
     """
     from selectable.base import LookupBase
-    if isinstance(lookup_class, string_types):
+    if isinstance(lookup_class, str):
         mod_str, cls_str = lookup_class.rsplit('.', 1)
         mod = import_module(mod_str)
         lookup_class = getattr(mod, cls_str)
